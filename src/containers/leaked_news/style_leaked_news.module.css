@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap");
+
+:root {
+  /* font size */
+  --text-h1: 30px;
+  --text-h2: 23px;
+  --text-p: 17px;
+
+  /* Color of letters*/
+  --text-color-on-primary-background: #333333;
+  --text-color-on-secondary-background: #ffffff;
+
+  /* font family titles */
+  --font-family-title: "Kalam", cursive;
+
+  /* backgrounds */
+  --main-background-color: #f2f2f2;
+  --secondary-background-color: #333333;
+  --tertiary-background-color: #b50938;
+}
+/*-----------------------------------*/
+
+
+/* Media screen Mobile and tablet*/
+
+/*-----------------------------------*/
+
+
+/* Media screen Desktop*/
+@media screen and (min-width: 750px) {}
+/*-----------------------------------*/
