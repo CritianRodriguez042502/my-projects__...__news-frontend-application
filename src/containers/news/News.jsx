@@ -2,7 +2,11 @@ import { Helmet } from "react-helmet";
 import { Layout } from "../../layout/Layout";
 import style from "./style_news.module.css";
 
+const apiKey = "6a209fc13bf14467b5b601f352d365ce"
+const urlTest = "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=6a209fc13bf14467b5b601f352d365ce"
+
 export function News() {
+  
   return (
     <main>
       <Helmet>
@@ -11,7 +15,7 @@ export function News() {
         <title> Noticias... </title>
       </Helmet>
       <Layout>
-        <h1 className={style.title}> News all </h1>
+        <h1 className={style.title}> NOTICIAS </h1>
       </Layout>
     </main>
   );

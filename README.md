@@ -17,14 +17,12 @@ Este proyecto es un portal de noticias que consume una API de noticias para most
 ## Configuración del Proyecto 🛠️
 
 1. **Clonar el repositorio:**
-   git clone https://github.com/tu-usuario/news-portal.gitgit clone https://github.com/tu-usuario/news-portal.git
+   git clone https://github.com/CritianRodriguez042502/bbc-news.git
 2. **Navega hacia la carpeta :** cd news-portal
 3. Instalar dependencias : npm install
 4. Ejecutar el proyecto : npm run dev
 
-
 El proyecto estará disponible en `http://localhost:5173`
-
 
 ## Contribución 🤝
 

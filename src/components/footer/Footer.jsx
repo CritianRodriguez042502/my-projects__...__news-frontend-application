@@ -12,11 +12,11 @@ export function Footer() {
         <h1> !BBC NEWS!</h1>
         <p>
           Exploro la API de BBC News para ofrecer acceso a información
-          actualizada y relevante que pasa en el mundo."
+          actualizada y relevante que pasa en el mundo.
         </p>
         <div>
           <button>
-            <a href="https://www.bbc.com/news" target="_blank">
+            <a href="https://newsapi.org/" target="_blank">
               WEB
             </a>
           </button>
