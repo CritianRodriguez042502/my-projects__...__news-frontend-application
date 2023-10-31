@@ -20,24 +20,125 @@
 }
 /*-----------------------------------*/
 
-
 /* Media screen Mobile and tablet*/
 .title {
   font-size: var(--text-h1);
   text-align: center;
   font-weight: bold;
   color: var(--tertiary-background-color);
-  margin-top: 150px;
+  margin-top: 140px;
+  margin-bottom: 40px;
 }
 
+.containerNews {
+  margin: 0 auto;
+}
+
+.item {
+  margin: 10px 0px 40px 0px;
+  background: #ffffff;
+  box-shadow: 1px 4px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.item:hover {
+  box-shadow: 1px 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.titleNews {
+  padding: 10px;
+  font-size: var(--text-h2);
+  margin: 0px;
+}
+
+.item:hover .titleNews {
+  text-decoration: underline;
+}
+
+.img {
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.item:hover .img {
+  transform: scale(1.04);
+}
+
+.date {
+  font-size: var(--text-p);
+  color: var(--text-color-on-primary-background);
+  margin: 5px 14px 6px 0px;
+  padding-bottom: 5px;
+  text-align: end;
+}
 
 /*-----------------------------------*/
 
+/* Media screen Tablet*/
+@media screen and (min-width: 750px) and (max-width: 950px) {
+  .title {
+    margin-top: 20px;
+  }
+
+  .containerNews {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+    gap: 30px;
+  }
+
+  .item {
+    margin: initial;
+    background: #ffffff;
+    border-radius: 7px;
+    box-shadow: 1px 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .titleNews {
+    height: 30%;
+  }
+
+  .img {
+    height: 50%;
+  }
+
+  .date {
+    height: 10%;
+  }
+
+}
+/*-----------------------------------*/
 
 /* Media screen Desktop*/
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 950px) {
   .title {
-    margin-top: 40px;
+    margin-top: 20px;
+  }
+
+  .containerNews {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 85%;
+    gap: 30px;
+  }
+
+  .item {
+    height: 400px;
+    margin: initial;
+    border-radius: 7px;
+  }
+
+  .titleNews {
+    height: 32%;
+  }
+
+  .img {
+    height: 50%;
+  }
+
+  .date {
+    height: 10%;
   }
 }
-/*-----------------------------------*/

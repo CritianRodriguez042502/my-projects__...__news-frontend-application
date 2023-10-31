@@ -74,7 +74,7 @@ export function Home() {
               Cobertura Global y <br />Diversidad
             </h2>
             <p className={style.textBenefits}>
-              Es un sistem que ofrece una cobertura amplia y diversa de
+              Es un sistema que ofrece una cobertura amplia y diversa de
               noticias, no solo a nivel nacional, sino también a nivel
               internacional. Puedes resaltar la amplitud de temas que abarca,
               desde política y economía hasta cultura, ciencia, tecnología y
