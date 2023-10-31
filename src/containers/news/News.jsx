@@ -32,24 +32,44 @@ export function News() {
       </Helmet>
       <Layout>
         <h1 className={style.title}> NOTICIAS </h1>
+
+        <section className={style.containerCategoryes}>
+          <aside className={style.containerLinks}>
+            <p className={style.Linkcategory}> Tecnologia </p>
+            <p className={style.Linkcategory}> Ciencia </p>
+            <p className={style.Linkcategory}> Entretenimiento </p>
+            <p className={style.Linkcategory}> Deportes </p>
+            <p className={style.Linkcategory}> Politica </p>
+            <p className={style.Linkcategory}> Negocios </p>
+          </aside>
+
+          <aside className={style.containerSearch}>
+            <form>
+              <input type="text" required />
+              <button type="submit">Buscar</button>
+            </form>
+          </aside>
+        </section>
+
         <section className={style.containerNews}>
-          {Object.keys(news) !== 0
+          {Object.keys(news).length !== 0
             ? news.articles?.map((index) => {
                 return (
                   <div key={index.id} className={style.item}>
-                    <h1 className={style.titleNews}>
-                      {index.title}
-                    </h1>
+                    <h1 className={style.titleNews}>{index.title}</h1>
                     <img
                       className={style.img}
                       src={index.urlToImage}
                       alt="img"
                     />
-                    <p className={style.date}> {index.publishedAt.split("T")[0]} </p>
+                    <p className={style.date}>
+                      {" "}
+                      {index.publishedAt.split("T")[0]}{" "}
+                    </p>
                   </div>
                 );
               })
-            : alert("Hubo algun error al llamar la api")}
+            : false}
         </section>
       </Layout>
     </main>

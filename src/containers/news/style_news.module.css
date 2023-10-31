@@ -23,13 +23,86 @@
 /* Media screen Mobile and tablet*/
 .title {
   font-size: var(--text-h1);
+  font-family: var(--font-family-title);
   text-align: center;
   font-weight: bold;
   color: var(--tertiary-background-color);
   margin-top: 140px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
+/*______________________*/
+.containerCategoryes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 10px 20px 10px;
+  background-color: #f2f2f2;
+}
+
+.containerLinks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0px 20px;
+  gap: 10px;
+}
+
+.Linkcategory {
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: var(--secondary-background-color);
+  color: var(--text-color-on-secondary-background);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Linkcategory:hover {
+  background: #191919;
+}
+
+.containerSearch {
+  margin: 0 auto;
+}
+
+.containerSearch form {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.containerSearch input[type="text"] {
+  width: 70%;
+  height: 20px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  outline: none;
+  margin-right: 10px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}
+
+.containerSearch button {
+  font-size: var(--text-p);
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2ecc71;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.containerSearch button:hover {
+  background-color: #1c8447;
+}
+
+/*______________________*/
+
+/*______________________*/
 .containerNews {
   margin: 0 auto;
 }
@@ -59,7 +132,7 @@
 
 .img {
   width: 100%;
-  transition: all 0.3s;
+  transition: all 0.4s;
 }
 
 .item:hover .img {
@@ -73,6 +146,7 @@
   padding-bottom: 5px;
   text-align: end;
 }
+/*______________________*/
 
 /*-----------------------------------*/
 
@@ -107,12 +181,12 @@
   .date {
     height: 10%;
   }
-
 }
 /*-----------------------------------*/
 
 /* Media screen Desktop*/
 @media screen and (min-width: 950px) {
+  /*______________________*/
   .title {
     margin-top: 20px;
   }
@@ -141,4 +215,22 @@
   .date {
     height: 10%;
   }
+  /*______________________*/
+
+  /*______________________*/
+  .containerCategoryes {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 87%;
+  }
+  .containerLinks {
+    display: flex;
+  }
+
+  .containerSearch {
+    margin: initial;
+    margin-right: 20px;
+  }
+  /*______________________*/
 }
