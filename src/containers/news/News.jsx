@@ -5,7 +5,7 @@ import { Layout } from "../../layout/Layout";
 import style from "./style_news.module.css";
 
 export function News() {
-  const apiKey = "6a209fc13bf14467b5b601f352d365ce";
+  const apiKey = "da09c7a07669433f86613d78bc8721ea";
   const url = `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${apiKey}`;
 
   const navigate = useNavigate();
@@ -30,6 +30,7 @@ export function News() {
         return res.json();
       })
       .then((data) => {
+        console.log(data)
         setNews(data);
       });
   }, []);

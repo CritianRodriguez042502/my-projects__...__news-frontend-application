@@ -8,6 +8,18 @@ import newsVideo from "../../assents/videos/bbc-news-video.mp4";
 import style from "./style_home.module.css";
 
 export function Home() {
+  const apiKey = "da09c7a07669433f86613d78bc8721ea";
+  const url = `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${apiKey}`;
+  fetch(url)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Hubo algun error");
+      }
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data.articles);
+    });
   return (
     <main>
       <Helmet>
@@ -56,7 +68,8 @@ export function Home() {
               <BsFill2CircleFill />
             </h1>
             <h2 className={style.titlesBenefits}>
-              Accesibilidad y <br />Variedad de Formatos
+              Accesibilidad y <br />
+              Variedad de Formatos
             </h2>
             <p className={style.textBenefits}>
               La plataforma se adapta a una amplia gama de plataformas y
@@ -71,7 +84,8 @@ export function Home() {
               <BsFill3CircleFill />
             </h1>
             <h2 className={style.titlesBenefits}>
-              Cobertura Global y <br />Diversidad
+              Cobertura Global y <br />
+              Diversidad
             </h2>
             <p className={style.textBenefits}>
               Es un sistema que ofrece una cobertura amplia y diversa de

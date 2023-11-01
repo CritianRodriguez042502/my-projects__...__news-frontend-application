@@ -8,7 +8,7 @@ export function LeakedNews() {
   const navigate = useNavigate();
   const params = useParams().slug;
 
-  const apiKey = "6a209fc13bf14467b5b601f352d365ce";
+  const apiKey = "da09c7a07669433f86613d78bc8721ea";
   const url = `https://newsapi.org/v2/everything?q=${params}&language=es&from=2023-10-01&sortBy=publishedAt&apiKey=${apiKey}`;
 
   const [allNews, setAllNews] = useState([]);
