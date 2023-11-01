@@ -30,7 +30,6 @@ export function News() {
         return res.json();
       })
       .then((data) => {
-        console.log(data)
         setNews(data);
       });
   }, []);
@@ -82,12 +81,12 @@ export function News() {
                 return (
                   <a key={i++} href={index.url} target="_blank">
                     <div className={style.item}>
-                      <h1 className={style.titleNews}>{index.title}</h1>
                       <img
                         className={style.img}
                         src={index.urlToImage}
                         alt="img"
                       />
+                      <h1 className={style.titleNews}>{index.title}</h1>
                       <p className={style.date}>
                         {index.publishedAt.split("T")[0]}
                       </p>

@@ -157,7 +157,7 @@ a {
 
 .titleNews {
   padding: 10px;
-  font-size: var(--text-h2);
+  font-size: 21px;
   margin: 0px;
 }
 
@@ -201,7 +201,6 @@ a {
   .item {
     margin: initial;
     background: #ffffff;
-    
     border-radius: 7px;
     box-shadow: 1px 4px 30px rgba(0, 0, 0, 0.1);
   }
