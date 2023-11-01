@@ -8,20 +8,9 @@ import newsVideo from "../../assents/videos/bbc-news-video.mp4";
 import style from "./style_home.module.css";
 
 export function Home() {
-  const apiKey = "da09c7a07669433f86613d78bc8721ea";
-  const url = `https://newsapi.org/v1/articles?source=bbc-news&apiKey=${apiKey}`
-  //const url = `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${apiKey}`;
-  fetch(url)
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error("Hubo algun error");
-      }
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data.articles);
-    }).catch((err) => {console.log(err)});
-    
+  const url = "http://localhost:4000/news"
+  fetch(url).then(res => {return res.json()}).then(data => console.log(data))
+
   return (
     <main>
       <Helmet>
