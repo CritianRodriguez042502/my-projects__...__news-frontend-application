@@ -8,15 +8,7 @@ import newsVideo from "../../assents/videos/bbc-news-video.mp4";
 import style from "./style_home.module.css";
 
 export function Home() {
-  const api = "https://rickandmortyapi.com/api/character/?page=19";
-  fetch(api)
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data.results)
-    });
-
+  
   return (
     <main>
       <Helmet>
