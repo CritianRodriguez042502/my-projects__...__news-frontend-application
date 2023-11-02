@@ -1,15 +1,15 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Home, News, LeakedNews } from "../containers/index";
 
 function Redirects() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" Component={Home} />
         <Route path="/news" Component={News} />
         <Route path="/news/:slug" Component={LeakedNews} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
