@@ -7,9 +7,7 @@ import style from "./style_leaked_news.module.css";
 export function LeakedNews() {
   const navigate = useNavigate();
   const params = useParams().slug;
-
-  const apiKey = "da09c7a07669433f86613d78bc8721ea";
-  const url = `https://newsapi.org/v2/everything?q=${params}&language=es&from=2023-10-01&sortBy=publishedAt&apiKey=${apiKey}`;
+  const url = `https://server-agency-1203.onrender.com/news/news_category/?slug=${params}`
 
   const [allNews, setAllNews] = useState([]);
   const news = [];
@@ -20,7 +18,7 @@ export function LeakedNews() {
     "Tecnologia",
     "Entretenimiento",
     "Deportes",
-    "Politica",
+    "Cultura",
     "Negocios",
     "Ciencia",
   ];
@@ -42,7 +40,7 @@ export function LeakedNews() {
         return res.json();
       })
       .then((data) => {
-        setAllNews(data.articles);
+        setAllNews(data.data);
       });
   }, [params]);
 

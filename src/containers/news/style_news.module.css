@@ -20,6 +20,35 @@
 }
 /*-----------------------------------*/
 
+/* Loader */
+.containerLoader {
+  padding: 140px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.loader { 
+  width: 100px;
+  height: 100px;
+  border: 8px solid var(--tertiary-background-color);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*_____________________*/
+
+
 /* Media screen Mobile and tablet*/
 .title {
   font-size: var(--text-h1);
@@ -32,6 +61,7 @@
 }
 
 /*______________________*/
+
 .containerCategoryes {
   display: flex;
   flex-direction: column;
@@ -106,8 +136,11 @@ a {
 .containerSearch button:hover {
   background-color: #1c8447;
 }
-
 /*______________________*/
+
+
+
+
 
 /*______________________*/
 .containerNews {

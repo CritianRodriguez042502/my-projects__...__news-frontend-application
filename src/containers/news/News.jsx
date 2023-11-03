@@ -5,38 +5,48 @@ import { Layout } from "../../layout/Layout";
 import style from "./style_news.module.css";
 
 export function News() {
-  const apiKey = "da09c7a07669433f86613d78bc8721ea";
-  const url = `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${apiKey}`;
+  const url = "https://server-agency-1203.onrender.com/news/initial_news/";
 
   const navigate = useNavigate();
   const [news, setNews] = useState({});
+
+  const [visibilityNews, setVisibilityNews] = useState("none");
+  const [visibilityLoader, setVisibilityLoader] = useState("initial");
 
   const category = [
     "Tecnologia",
     "Entretenimiento",
     "Deportes",
-    "Politica",
+    "Cultura",
     "Negocios",
     "Ciencia",
   ];
+
   let i = 1;
 
   useEffect(() => {
     fetch(url)
       .then((res) => {
-        if (!res.ok) {
-          throw new Error("Hubo algun error");
+        if (res.ok) {
+          setTimeout(() => {
+            setVisibilityNews("initial");
+            setVisibilityLoader("none");
+          }, 1000);
         }
+
+        if (!res.ok) {
+          throw new Error("Error repentino");
+        }
+
         return res.json();
       })
       .then((data) => {
-        setNews(data);
+        setNews(data.data);
       });
   }, []);
 
   function onSubmitSearch(e) {
     e.preventDefault();
-
     navigate(`/news/${e.target.search.value}`);
   }
 
@@ -50,52 +60,60 @@ export function News() {
       <Layout>
         <h1 className={style.title}> NOTICIAS </h1>
 
-        <section className={style.containerCategoryes}>
-          <aside className={style.containerLinks}>
-            {category?.map((index) => {
-              return (
-                <p
-                  className={style.Linkcategory}
-                  onClick={() => {
-                    navigate(`/news/${index}`);
-                  }}
-                  key={i++}
-                >
-                  {index}
-                </p>
-              );
-            })}
-          </aside>
-
-          <aside className={style.containerSearch}>
-            <form onSubmit={onSubmitSearch}>
-              <input name="search" type="text" required />
-              <button type="submit">Buscar</button>
-            </form>
-          </aside>
-        </section>
-
-        <section className={style.containerNews}>
-          {Object.keys(news).length !== 0
-            ? news.articles?.map((index) => {
+        <article style={{ display: visibilityNews }}>
+          <section className={style.containerCategoryes}>
+            <aside className={style.containerLinks}>
+              {category?.map((index) => {
                 return (
-                  <a key={i++} href={index.url} target="_blank">
-                    <div className={style.item}>
-                      <img
-                        className={style.img}
-                        src={index.urlToImage}
-                        alt="img"
-                      />
-                      <h1 className={style.titleNews}>{index.title}</h1>
-                      <p className={style.date}>
-                        {index.publishedAt.split("T")[0]}
-                      </p>
-                    </div>
-                  </a>
+                  <p
+                    className={style.Linkcategory}
+                    onClick={() => {
+                      navigate(`/news/${index}`);
+                    }}
+                    key={i++}
+                  >
+                    {index}
+                  </p>
                 );
-              })
-            : false}
-        </section>
+              })}
+            </aside>
+
+            <aside className={style.containerSearch}>
+              <form onSubmit={onSubmitSearch}>
+                <input name="search" type="text" required />
+                <button type="submit">Buscar</button>
+              </form>
+            </aside>
+          </section>
+
+          <section className={style.containerNews}>
+            {Object.keys(news).length !== 0
+              ? news?.map((index) => {
+                  return (
+                    <a key={i++} href={index.url} target="_blank">
+                      <div className={style.item}>
+                        <img
+                          className={style.img}
+                          src={index.urlToImage}
+                          alt="img"
+                        />
+                        <h1 className={style.titleNews}>{index.title}</h1>
+                        <p className={style.date}>
+                          {index.publishedAt.split("T")[0]}
+                        </p>
+                      </div>
+                    </a>
+                  );
+                })
+              : false}
+          </section>
+        </article>
+
+        <article style={{ display: visibilityLoader }}>
+          <div className={style.containerLoader}>
+            <span className={style.loader}></span>
+          </div>
+        </article>
       </Layout>
     </main>
   );

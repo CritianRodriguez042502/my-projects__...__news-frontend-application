@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Layout } from "../../layout/Layout";
 import { BsFill1CircleFill } from "react-icons/bs";
@@ -8,7 +9,12 @@ import newsVideo from "../../assents/videos/bbc-news-video.mp4";
 import style from "./style_home.module.css";
 
 export function Home() {
-  
+  const url = "https://server-agency-1203.onrender.com";
+
+  useEffect(function () {
+    fetch(url);
+  }, []);
+
   return (
     <main>
       <Helmet>
