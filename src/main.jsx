@@ -10,7 +10,7 @@ const App = () => {
   useEffect(function () {
     setTimeout(function () {
       setView(1);
-    }, 1000);
+    }, 250);
   }, []);
   
   return (
