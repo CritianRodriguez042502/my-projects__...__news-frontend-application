@@ -55,7 +55,7 @@ export function News() {
       <Helmet>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title> Noticias </title>
+        <title> News | Articulos </title>
       </Helmet>
       <Layout>
         <h1 className={style.title}> NOTICIAS </h1>

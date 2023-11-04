@@ -7,7 +7,7 @@ import style from "./style_leaked_news.module.css";
 export function LeakedNews() {
   const navigate = useNavigate();
   const params = useParams().slug;
-  const url = `https://server-agency-1203.onrender.com/news/news_category/?slug=${params}`
+  const url = `https://server-agency-1203.onrender.com/news/news_category/?slug=${params}`;
 
   const [allNews, setAllNews] = useState([]);
   const news = [];
@@ -65,7 +65,7 @@ export function LeakedNews() {
       <Helmet>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title> Busqueda </title>
+        <title> News | {params} </title>
       </Helmet>
       <Layout>
         <h1 className={style.title}> Noticias </h1>
