@@ -39,7 +39,7 @@
 }
 
 .textPresentation {
-  padding: 40px;
+  padding: 12% 10% 12% 10% ;
   margin: 0px;
   font-size: var(--text-p);
   color: var(--text-color-on-primary-background);
@@ -79,7 +79,7 @@
 }
 
 .textBenefits {
-  padding: 5px 20px;
+  padding: 5px 6%;
   font-size: var(--text-p);
   color: var(--text-color-on-primary-background);
   line-height: 1.8;

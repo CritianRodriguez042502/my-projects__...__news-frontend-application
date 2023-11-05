@@ -39,7 +39,7 @@
 .containerContact p {
   color: var(--text-color-on-secondary-background);
   font-size: var(--text-p);
-  padding: 10px 40px 0px 40px;
+  padding: 10px 10% 0px 10%;
   margin-bottom: 20px;
 }
 
@@ -78,6 +78,7 @@
 
 .containerFooter p {
   font-size: var(--text-p);
+  padding: 0px 10% 0px 10%;
   margin-top: 10px;
 }
 

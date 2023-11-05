@@ -75,6 +75,7 @@
   grid-template-columns: repeat(3, 1fr);
   margin: 0px 20px;
   gap: 10px;
+  padding: 0px 1%;
 }
 
 a {
@@ -116,10 +117,6 @@ a {
   border-radius: 7px;
   outline: none;
   margin-right: 10px;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  -ms-border-radius: 7px;
-  -o-border-radius: 7px;
 }
 
 .containerSearch button {
@@ -153,7 +150,7 @@ a {
   box-shadow: 1px 4px 30px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: box-shadow 0.3s;
 }
 
 .item:hover {
@@ -172,7 +169,7 @@ a {
 
 .img {
   width: 100%;
-  transition: all 0.4s;
+  transition: transform 0.4s;
 }
 
 .item:hover .img {
