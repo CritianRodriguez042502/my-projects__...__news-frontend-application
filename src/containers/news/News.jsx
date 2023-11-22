@@ -114,6 +114,8 @@ export function News() {
             <span className={style.loader}></span>
           </div>
         </article>
+
+        <div className={style.circule}></div>
       </Layout>
     </main>
   );
