@@ -271,4 +271,13 @@ a {
     margin-right: 20px;
   }
   /*______________________*/
+  .circule {
+    position: absolute;
+    top: 0px;
+    left: -160px;
+    border-radius: 50%;
+    background: var(--tertiary-background-color);
+    width: 200px;
+    height: 200px;
+  }
 }

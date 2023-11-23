@@ -131,6 +131,7 @@ export function LeakedNews() {
             <span className={style.loader}></span>
           </div>
         </article>
+        <div className={style.circule}></div>
       </Layout>
     </main>
   );
