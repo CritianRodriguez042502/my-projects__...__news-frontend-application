@@ -1,5 +1,5 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { Home, News, LeakedNews } from "../containers/index";
+import { Home, News, LeakedNews } from "../views/index.js";
 
 function Redirects() {
   return (

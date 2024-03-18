@@ -1,8 +1,8 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import Dom from "react-dom/client";
-import Redirects from "./routes/index";
-import "./styles/style.css";
+import { useState, useEffect } from "react";
+import Redirects from "./routes/index.routes.jsx";
+import "./styles/index.css";
 
 const App = () => {
   const [view, setView] = useState(0);
