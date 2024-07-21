@@ -1,22 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
 
 :root {
-  /* font size */
-  --text-h1: 30px;
-  --text-h2: 23px;
-  --text-p: 17px;
+    /* font size */
+    --text-h1: 30px;
+    --text-h2: 23px;
+    --text-p: 17px;
 
-  /* Color of letters*/
-  --text-color-on-primary-background: #333333;
-  --text-color-on-secondary-background: #ffffff;
+    /* Color of letters*/
+    --text-color-on-primary-background: #333333;
+    --text-color-on-secondary-background: #ffffff;
 
-  /* font family titles */
-  --font-family-title: "Kalam", cursive;
+    /* font family titles */
+    --font-family-title: 'Kalam', cursive;
 
-  /* backgrounds */
-  --main-background-color: #f2f2f2;
-  --secondary-background-color: #333333;
-  --tertiary-background-color: #b50938;
+    /* backgrounds */
+    --main-background-color: #f2f2f2;
+    --secondary-background-color: #333333;
+    --tertiary-background-color: #b50938;
 }
 /*-----------------------------------*/
 
@@ -24,85 +24,85 @@
 
 /* Section presentation*/
 .presentationContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-top: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 160px;
 }
 
 .title {
-  font-family: var(--font-family-title);
-  font-size: 45px;
-  color: var(--tertiary-background-color);
-  margin: 0px;
+    font-family: var(--font-family-title);
+    font-size: 45px;
+    color: var(--tertiary-background-color);
+    margin: 0px;
 }
 
 .textPresentation {
-  padding: 12% 10% 12% 10% ;
-  margin: 0px;
-  font-size: var(--text-p);
-  color: var(--text-color-on-primary-background);
-  line-height: 1.6;
+    padding: 12% 10% 12% 10%;
+    margin: 0px;
+    font-size: var(--text-p);
+    color: var(--text-color-on-primary-background);
+    line-height: 1.6;
 }
 
 .img {
-  width: 100%;
-  max-width: 700px;
+    width: 100%;
+    max-width: 700px;
 }
 /*_________________________*/
 
 /* Section beneficts*/
 .benefitsContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .item {
-  text-align: center;
-  margin: 10px 0px 0px 0px;
-  padding: 15px 20px 0px 20px;
+    text-align: center;
+    margin: 10px 0px 0px 0px;
+    padding: 15px 20px 0px 20px;
 }
 
 .icon {
-  font-size: 40px;
-  color: var(--tertiary-background-color);
-  margin-bottom: 10px;
+    font-size: 40px;
+    color: var(--tertiary-background-color);
+    margin-bottom: 10px;
 }
 
 .titlesBenefits {
-  font-size: var(--text-h2);
-  margin-top: 10px;
-  text-decoration: underline;
-  color: var(--text-color-on-primary-background);
+    font-size: var(--text-h2);
+    margin-top: 10px;
+    text-decoration: underline;
+    color: var(--text-color-on-primary-background);
 }
 
 .textBenefits {
-  padding: 5px 6%;
-  font-size: var(--text-p);
-  color: var(--text-color-on-primary-background);
-  line-height: 1.8;
+    padding: 5px 6%;
+    font-size: var(--text-p);
+    color: var(--text-color-on-primary-background);
+    line-height: 1.8;
 }
 /*_________________________*/
 
 /* Section video*/
 .videoContainer {
-  margin-top: 70px;
-  text-align: center;
+    margin-top: 70px;
+    text-align: center;
 }
 
 .titleVideo {
-  font-size: var(--text-h1);
-  color: var(--text-color-on-primary-background);
-  margin-bottom: 20px;
+    font-size: var(--text-h1);
+    color: var(--text-color-on-primary-background);
+    margin-bottom: 20px;
 }
 
 video {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-  outline: none;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    outline: none;
 }
 /*_________________________*/
 
@@ -110,76 +110,76 @@ video {
 
 /* Media screen Desktop*/
 @media screen and (min-width: 750px) {
-  /* Section presentation*/
-  .presentationContainer {
-    position: relative;
-    margin-top: 50px;
-    flex-direction: row;
-  }
+    /* Section presentation*/
+    .presentationContainer {
+        position: relative;
+        margin-top: 50px;
+        flex-direction: row;
+    }
 
-  .presentationContent {
-    padding-left: 10px;
-    width: 40%;
-  }
+    .presentationContent {
+        padding-left: 10px;
+        width: 40%;
+    }
 
-  .presentationImage {
-    width: 60%;
-  }
+    .presentationImage {
+        width: 60%;
+    }
 
-  .img {
-    border-radius: 10px;
-    box-shadow: 1px 4px 30px rgba(0, 0, 0, 0.6);
-  }
+    .img {
+        border-radius: 10px;
+        box-shadow: 1px 4px 30px rgba(0, 0, 0, 0.6);
+    }
 
-  .circule {
-    position: absolute;
-    top: -170px;
-    left: -160px;
-    border-radius: 50%;
-    background: var(--tertiary-background-color);
-    width: 200px;
-    height: 200px;
-  }
-  /*_________________________*/
+    .circule {
+        position: absolute;
+        top: -170px;
+        left: -160px;
+        border-radius: 50%;
+        background: var(--tertiary-background-color);
+        width: 200px;
+        height: 200px;
+    }
+    /*_________________________*/
 
-  /* Section beneficts*/
-  .benefitsContainer {
-    padding-bottom: 50px;
-    margin-top: 80px;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: row;
-    background: #ffffff;
-  }
+    /* Section beneficts*/
+    .benefitsContainer {
+        padding-bottom: 50px;
+        margin-top: 80px;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: row;
+        background: #ffffff;
+    }
 
-  .item {
-    width: 27%;
-    height: 500px;
-  }
+    .item {
+        width: 27%;
+        height: 500px;
+    }
 
-  /*_________________________*/
+    /*_________________________*/
 
-  /* Section video*/
-  .videoContainer {
-    position: relative;
-    margin-top: 90px;
-  }
+    /* Section video*/
+    .videoContainer {
+        position: relative;
+        margin-top: 90px;
+    }
 
-  video {
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+    video {
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-  .circule2 {
-    position: absolute;
-    top: -100px;
-    right: -150px;
-    border-radius: 50%;
-    background: var(--tertiary-background-color);
-    width: 200px;
-    height: 200px;
-}
-  
-  /*_________________________*/
+    .circule2 {
+        position: absolute;
+        top: -100px;
+        right: -150px;
+        border-radius: 50%;
+        background: var(--tertiary-background-color);
+        width: 200px;
+        height: 200px;
+    }
+
+    /*_________________________*/
 }
 /*-----------------------------------*/

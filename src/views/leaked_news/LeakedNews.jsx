@@ -1,138 +1,145 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { Helmet } from "react-helmet";
-import { Layout } from "../../layout/Layout";
-import style from "./style_leaked_news.module.css";
+import { useState, useEffect, useMemo } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
+import style from './style_leaked_news.module.css';
 
 export function LeakedNews() {
-  const navigate = useNavigate();
-  const params = useParams().slug;
-  const url = `https://server-agency-1203.onrender.com/news/news_category/?slug=${params}`;
+    const navigate = useNavigate();
+    const params = useParams().slug;
 
-  const [allNews, setAllNews] = useState([]);
-  const news = [];
-  const [visibilityNews, setVisibilityNews] = useState("none");
-  const [visibilityLoader, setVisibilityLoader] = useState("initial");
+    const url = `${import.meta.env.VITE_URL_BACKEND_DJANGO}/news/news_category/?slug=${params}`;
 
-  const category = [
-    "Tecnologia",
-    "Entretenimiento",
-    "Deportes",
-    "Cultura",
-    "Negocios",
-    "Ciencia",
-  ];
+    const [showNews, setShowNews] = useState(false);
+    const [news, setNews] = useState([]);
+    const [search, setSearch] = useState('');
 
-  let i = 1;
+    const categories = useMemo(
+        () => ['Tecnologia', 'Entretenimiento', 'Deportes', 'Cultura', 'Negocios', 'Ciencia'],
+        []
+    );
 
-  useEffect(() => {
-    fetch(url)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Hubo algun error");
+    useEffect(() => {
+        if (!categories.some((item) => item.toLocaleLowerCase() === params.toLocaleLowerCase())) {
+            setSearch(params);
         }
-        if (res.ok) {
-          setTimeout(() => {
-            setVisibilityNews("initial");
-            setVisibilityLoader("none");
-          }, 1000);
+
+        fetch(url)
+            .then((res) => {
+                if (res.ok) {
+                    setShowNews(true);
+                }
+                return res.json();
+            })
+            .then((data) => {
+                setNews(data.data);
+            });
+    }, [params]);
+
+    function onChangeSearch(e) {
+        setSearch(e.target.value);
+    }
+
+    function changeBetweenCategories(item) {
+        if (item !== params) {
+            setShowNews(false);
+            navigate(`/news/${item}`);
         }
-        return res.json();
-      })
-      .then((data) => {
-        setAllNews(data.data);
-      });
-  }, [params]);
+    }
 
-  if (allNews.length !== 0) {
-    allNews?.map((index) => {
-      if (news.length < 21) {
-        news.push(index);
-      }
-    });
-  }
+    function onSubmitSearch(e) {
+        e.preventDefault();
 
-  function onSubmitSearch(e) {
-    e.preventDefault();
+        setShowNews(false);
+        navigate(`/news/${String(e.target.search.value).toLocaleLowerCase()}`);
+    }
 
-    setVisibilityNews("none");
-    setVisibilityLoader("initial");
-    navigate(`/news/${e.target.search.value}`);
-  }
+    return (
+        <>
+            <Helmet>
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title> News | {params} </title>
+            </Helmet>
 
-  return (
-    <main>
-      <Helmet>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title> News | {params} </title>
-      </Helmet>
-      <Layout>
-        <h1 className={style.title}> Noticias </h1>
+            <h1 className={style.title}> Noticias </h1>
 
-        <article style={{ display: visibilityNews }}>
-          <section className={style.containerCategoryes}>
-            <aside className={style.containerLinks}>
-              {category?.map((index) => {
-                return (
-                  <p
-                    style={
-                      params === index
-                        ? { background: "#191919", textDecoration: "underline" }
-                        : { textDecoration: "none" }
-                    }
-                    className={style.Linkcategory}
-                    onClick={() => {
-                      setVisibilityNews("none");
-                      setVisibilityLoader("initial");
-                      navigate(`/news/${index}`);
-                    }}
-                    key={i++}
-                  >
-                    {index}
-                  </p>
-                );
-              })}
-            </aside>
+            {showNews ? (
+                <>
+                    <section className={style.containerCategoryes}>
+                        <aside className={style.containerLinks}>
+                            {categories?.map((item, index) => {
+                                return (
+                                    <p
+                                        style={
+                                            item === params
+                                                ? {
+                                                      background: '#191919',
+                                                      textDecoration: 'underline',
+                                                      cursor: 'default',
+                                                  }
+                                                : null
+                                        }
+                                        className={style.Linkcategory}
+                                        onClick={() => changeBetweenCategories(item)}
+                                        key={index}
+                                    >
+                                        {item}
+                                    </p>
+                                );
+                            })}
+                        </aside>
 
-            <aside className={style.containerSearch}>
-              <form onSubmit={onSubmitSearch}>
-                <input name="search" type="text" required />
-                <button type="submit">Buscar</button>
-              </form>
-            </aside>
-          </section>
+                        <form className={style.containerSearch} onSubmit={onSubmitSearch}>
+                            <input
+                                name="search"
+                                type="text"
+                                value={search}
+                                onChange={onChangeSearch}
+                                required
+                            />
+                            <button type="submit">Buscar</button>
+                        </form>
+                    </section>
 
-          <section className={style.containerNews}>
-            {news.length !== 0
-              ? news?.map((index) => {
-                  return (
-                    <a key={i++} href={index.url} target="_blank">
-                      <div className={style.item}>
-                        <img
-                          className={style.img}
-                          src={index.urlToImage}
-                          alt="img"
-                        />
-                        <h1 className={style.titleNews}>{index.title}</h1>
-                        <p className={style.date}>
-                          {index.publishedAt.split("T")[0]}
-                        </p>
-                      </div>
-                    </a>
-                  );
-                })
-              : false}
-          </section>
-        </article>
+                    <section className={style.containerNews}>
+                        {news.length > 0 ? (
+                            <>
+                                {news?.map((item, index) => {
+                                    return (
+                                        <a
+                                            key={index}
+                                            href={item.url}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            <div className={style.item}>
+                                                <img
+                                                    className={style.img}
+                                                    src={item.urlToImage}
+                                                    alt="img"
+                                                />
+                                                <h1 className={style.titleNews}>{item.title}</h1>
+                                                <p className={style.date}>
+                                                    {item.publishedAt.split('T')[0]}
+                                                </p>
+                                            </div>
+                                        </a>
+                                    );
+                                })}
+                            </>
+                        ) : (
+                            <h3 style={{ textAlign: 'center' }}>No se encontraron resultados.</h3>
+                        )}
+                    </section>
+                </>
+            ) : (
+                <div className={style.containerLoader}>
+                    <span className={style.loader}></span>
+                </div>
+            )}
 
-        <article style={{ display: visibilityLoader }}>
-          <div className={style.containerLoader}>
-            <span className={style.loader}></span>
-          </div>
-        </article>
-        <div className={style.circule}></div>
-      </Layout>
-    </main>
-  );
+            <div className={style.circule}></div>
+        </>
+    );
 }
