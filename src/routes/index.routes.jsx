@@ -1,16 +1,40 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
-import { Home, News, LeakedNews } from "../views/index.js";
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import { Home, News, LeakedNews } from '@/views/index.js';
 
-function Redirects() {
-  return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" Component={Home} />
-        <Route path="/news" Component={News} />
-        <Route path="/news/:slug" Component={LeakedNews} />
-      </Routes>
-    </HashRouter>
-  );
+// Components
+import Layout from '@/components/layout/Layout.jsx';
+
+function RoutesApp() {
+    return (
+        <HashRouter>
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <Layout>
+                            <Home />
+                        </Layout>
+                    }
+                />
+                <Route
+                    path="/news"
+                    element={
+                        <Layout>
+                            <News />
+                        </Layout>
+                    }
+                />
+                <Route
+                    path="/news/:slug"
+                    element={
+                        <Layout>
+                            <LeakedNews />
+                        </Layout>
+                    }
+                />
+            </Routes>
+        </HashRouter>
+    );
 }
 
-export default Redirects;
+export default RoutesApp;

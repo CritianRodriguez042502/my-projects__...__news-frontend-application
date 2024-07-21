@@ -1,64 +1,75 @@
-import { NavLink } from "react-router-dom";
-import { useState } from "react";
-import { DiJsBadge } from "react-icons/di";
-import { BiNews } from "react-icons/bi";
-import { AiOutlineMenu } from "react-icons/ai";
-import style from "./style_navbar.module.css";
+import Popup from 'reactjs-popup';
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { BiNews } from 'react-icons/bi';
+import { AiOutlineMenu } from 'react-icons/ai';
+
+import style from './style_navbar.module.css';
 
 export function Navbar() {
-  const [apperance, setApperance] = useState("none");
+    const [showMenu, setShowMenu] = useState(false);
 
-  const onClickApperanceNavbar = (e) => {
-    if (apperance === "none") {
-      setApperance("flex");
-    } else {
-      setApperance("none");
-    }
-  };
+    const onClickShowMenu = () => {
+        setShowMenu(!showMenu);
+    };
 
-  const navigate = (e) => {
-    window.setTimeout(() => {
-      setApperance("none");
-    }, 300);
-  };
+    const navigate = () => {
+        setTimeout(() => {
+            setShowMenu(false);
+        }, 500);
+    };
 
-  return (
-    <main>
-      <section className={style.containerNavbarMobile}>
-        <aside className={style.containerIcons}>
-          <div onClick={onClickApperanceNavbar} className={style.iconClose}>
-            <AiOutlineMenu />
-          </div>
-          <div className={style.iconMain}>
-            <BiNews />
-          </div>
-        </aside>
+    return (
+        <>
+            <section className={style.mobileNavbar}>
+                <aside className={style.navIconToggle}>
+                    <AiOutlineMenu
+                        size={40}
+                        color="#1A1A1A"
+                        cursor={'pointer'}
+                        onClick={onClickShowMenu}
+                    />
 
-        <aside style={{ display: apperance }} className={style.containerFixed}>
-          <nav className={style.containerLinks}>
-            <NavLink onClick={navigate} className={style.links} to={"/"}>
-              Inicio
-            </NavLink>
-            <NavLink onClick={navigate} className={style.links} to={"/news"}>
-              Noticias
-            </NavLink>
-          </nav>
-        </aside>
-      </section>
+                    <BiNews size={40} color="#b50938" />
+                </aside>
 
-      <section className={style.containerNavbarDesktop}>
-        <div className={style.iconMain}>
-          <BiNews />
-        </div>
-        <nav className={style.containerLinks}>
-          <NavLink onClick={navigate} className={style.links} to={"/"}>
-            Inicio
-          </NavLink>
-          <NavLink onClick={navigate} className={style.links} to={"/news"}>
-            Noticias
-          </NavLink>
-        </nav>
-      </section>
-    </main>
-  );
+                <Popup
+                    modal
+                    nested
+                    lockScroll
+                    open={showMenu}
+                    onClose={() => setShowMenu(false)}
+                    overlayStyle={{
+                        background: 'rgba(0, 0, 0, 0.2)',
+                        backdropFilter: 'blur(5px)',
+                    }}
+                    position="center center"
+                >
+                    <nav className={style.subMenu}>
+                        <NavLink onClick={navigate} className={style.subMenuLinks} to={'/'}>
+                            Inicio
+                        </NavLink>
+
+                        <NavLink onClick={navigate} className={style.subMenuLinks} to={'/news'}>
+                            Noticias
+                        </NavLink>
+                    </nav>
+                </Popup>
+            </section>
+
+            <section className={style.desktopNavbar}>
+                <BiNews size={40} color="#b50938" />
+
+                <nav className={style.desktopNavItems}>
+                    <NavLink className={style.desktopNavItemsLinks} to={'/'}>
+                        Inicio
+                    </NavLink>
+
+                    <NavLink className={style.desktopNavItemsLinks} to={'/news'}>
+                        Noticias
+                    </NavLink>
+                </nav>
+            </section>
+        </>
+    );
 }
